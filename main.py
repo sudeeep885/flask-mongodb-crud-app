@@ -15,7 +15,7 @@ initialize_db(app)
 @app.route('/list')
 def print_users():
     users = User.objects().to_json()
-    if len(users)>2:
+    if (users!='[]'):
         return Response(users, mimetype='application/json', status=200)
     else:
         return "No documents found"
